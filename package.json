@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@iframe-resizer/parent": "^5.4.6"
+  }
+}
