@@ -1,20 +1,28 @@
 'use client';
 import MediaCarousel from '@/components/MediaCarousel'
 
-const heroSlides = [
+const slides = [
   {
-    type: 'video',
-    src: 'https://www.youtube.com/watch?v=29XymHesxa0',
-    title: 'Empower Your Transformation',
-    subtitle: 'Solutions designed to scale your impact.',
-    cta: { label: 'Let’s Talk', href: '/contact' },
+    type: 'image',
+    src: '/images/earth.jpg',
+    alt: 'Earth from space',
+    title: 'Earth',
+    subtitle: 'Our blue home',
+    cta: { label: 'Learn More', href: '/earth' },
   },
   {
     type: 'image',
-    src: '/img/hero1.jpg',
-    alt: 'Hero 1',
-    title: 'We Build With You',
-    subtitle: 'Digital strategy, data, AI, and beyond.',
+    src: '/images/spacex.jpg',
+    title: 'Blue Planet',
+    subtitle: 'A cinematic journey through the oceans',
+    cta: { label: 'Watch Trailer', href: '/blue-planet' },
+  },
+  {
+    type: 'image',
+    src: '/images/mars.jpg',
+    alt: 'Mars surface',
+    title: 'Mars',
+    subtitle: 'The red frontier',
   },
 ];
 
@@ -22,7 +30,7 @@ export default function Home() {
   return (
     <div id="app">
       <div id='featured-stories' className='relative'>
-        <MediaCarousel slides={heroSlides} />
+        <MediaCarousel slides={slides} autoPlayDelay={10000}/>
       </div>
     </div>
   );
