@@ -14,10 +14,12 @@ export default function MediaCarousel({ slides = [], autoPlayDelay = 5000 }) {
   const timerRef = useRef(null);
 
   const len = slides.length;
-  const goTo = (i) => {
+  const goTo = (i, resume = false) => {
     setCurrent(((i % len) + len) % len);
     setStartTime(Date.now());
     setRemainingTime(autoPlayDelay);
+
+    if(resume) setIsPlaying(true);
   };
   const next = () => goTo(current + 1);
 
@@ -101,7 +103,7 @@ export default function MediaCarousel({ slides = [], autoPlayDelay = 5000 }) {
         {slides.map((_, i) => (
           <div
             key={i}
-            onClick={() => goTo(i)}
+            onClick={() => goTo(i, true)}
             className="flex-1 bg-white/20 mx-1 relative cursor-pointer overflow-hidden rounded-full transition-colors duration-100 ease-out transform-gpu hover:scale-y-150 hover:bg-white/40"
           >
             {i === current && (
